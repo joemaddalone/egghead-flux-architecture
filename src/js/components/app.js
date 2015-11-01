@@ -1,18 +1,18 @@
 import React from 'react';
 import Catalog from './catalog/app-catalog';
 import Cart from './cart/app-cart';
+import CatalogDetail from './product/app-catalogdetail.js';
+import Template from './app-template.js';
+import { Router, Route, IndexRoute } from 'react-router';
 
-class App extends React.Component {
-  render(){
+export default () => {
     return (
-      <div>
-        <h1>Consume</h1>
-        <Catalog />
-        <h1>Obey</h1>
-        <Cart />
-      </div>
+        <Router>
+            <Route path="/" component={ Template }>
+                <IndexRoute component={ Catalog }/>
+                <Route path="cart" component={ Cart }/>
+                <Route path="item/:item" component={ CatalogDetail } />
+            </Route>
+        </Router>
     );
-  }
-}
-
-export default App;
+};

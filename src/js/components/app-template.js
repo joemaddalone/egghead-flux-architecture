@@ -1,7 +1,13 @@
-var Template = React.createClass({
-  render:function(){
-    return null
-  }
-});
+import React from 'react';
+import Header from './header/app-header';
 
-module.exports = Template;
+export default ( props ) => {
+    return (
+        <div className="container">
+            <Header />
+            { props.children }
+        </div>
+    );
+};
+
+

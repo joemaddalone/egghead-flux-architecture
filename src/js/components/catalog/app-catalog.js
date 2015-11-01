@@ -1,30 +1,22 @@
-import React from'react';
+import React from 'react';
 import AppStore from '../../stores/app-store.js';
 import AddToCart from './app-addtocart.js';
+import StoreWatchMixin from '../../mixins/StoreWatchMixin';
+import CatalogItem from '../catalog/app-catalogitem';
 
-class Catalog extends React.Component {
-  constructor(){
-    super()
-    this.state = {items: AppStore.getCatalog()}
-  }
-  render(){
-    let items = this.state.items.map(item => {
-      return (
-        <tr key={item.id}>
-          <td>{item.title}</td>
-          <td>${item.cost}</td>
-          <td><AddToCart item={item} /></td>
-        </tr>
-      );
-    })
-    return (
-      <table className="table table-hover">
-        <tbody>
-          {items}
-        </tbody>
-      </table>
-    )
-  }
+function getCatalog() {
+    return {items: AppStore.getCatalog()}
 }
 
-export default Catalog;
+const Catalog = ( props ) => {
+    var items = props.items.map( ( item ) => {
+        return <CatalogItem key={ item.id } item={ item } />
+    } );
+    return (
+        <div className="row">
+            { items }
+        </div>
+    );
+};
+
+export default StoreWatchMixin( Catalog, getCatalog );
