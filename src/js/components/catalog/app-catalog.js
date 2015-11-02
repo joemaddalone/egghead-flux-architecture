@@ -1,6 +1,5 @@
 import React from 'react';
-import AppStore from '../../stores/app-store.js';
-import AddToCart from './app-addtocart.js';
+import AppStore from '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import CatalogItem from '../catalog/app-catalogitem';
 

@@ -1,17 +1,29 @@
 import React from 'react';
-import RemoveFromCart from './app-removefromcart.js';
-import Increase from './app-decreaseitem';
-import Decrease from './app-increaseitem';
+import CartButton from './app-cart-button';
+import AppActions from '../../actions/app-actions'
 
 export default ( props ) => {
     return (
         <tr>
-            <td><RemoveFromCart index={props.index}/></td>
+            <td>
+                <CartButton
+                    index={props.index}
+                    txt="x"
+                    handler={AppActions.removeItem.bind(null, props.index )} />
+            </td>
             <td>{props.item.title}</td>
             <td>{props.item.qty}</td>
             <td>
-                <Increase index={props.index}/>
-                <Decrease index={props.index}/>
+                <div className="btn-group">
+                    <CartButton
+                        index={props.index}
+                        txt="-"
+                        handler={AppActions.decreaseItem.bind(null, props.index )} />
+                    <CartButton
+                        index={props.index}
+                        txt="+"
+                        handler={AppActions.increaseItem.bind(null, props.index )} />
+                </div>
             </td>
             <td>${props.subtotal}</td>
         </tr>

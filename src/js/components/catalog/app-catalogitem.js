@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router';
-import AddToCart from './app-addtocart';
-
+import AppActions from '../../actions/app-actions'
+import CartButton from '../cart/app-cart-button';
 
 export default ( props ) => {
     let itemStyle = {
@@ -15,9 +15,9 @@ export default ( props ) => {
             <p>{ props.item.summary }</p>
             <p>${ props.item.cost } <span
                 className="text-success">{ props.item.inCart && `(${props.item.qty} in cart)` }</span></p>
-            <div className="btn-group btn-group-xs">
-                <Link to={ `/item/${props.item.id}` } className="btn btn-default">Learn More</Link>
-                <AddToCart item={ props.item }/>
+            <div className="btn-group">
+                <Link to={ `/item/${props.item.id}` } className="btn btn-default btn-sm">Learn More</Link>
+                <CartButton txt="Add ToCart" handler={AppActions.addItem.bind(null, props.item )} />
             </div>
         </div>
     );

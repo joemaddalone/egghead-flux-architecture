@@ -1,7 +1,8 @@
 import React from 'react';
-import AppStore from '../../stores/app-store.js';
-import AddToCart from '../catalog/app-addtocart.js';
+import AppStore from '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
+import AppActions from '../../actions/app-actions'
+import CartButton from '../cart/app-cart-button';
 import { Link } from 'react-router';
 
 function getCatalogItem( props ) {
@@ -19,9 +20,9 @@ const CatalogDetail = ( props ) => {
               { props.item.inCart && '(' + props.item.qty + ' in cart)' }
             </span>
             </p>
-            <div className="btn-group btn-group-sm">
-                <AddToCart item={ props.item }/>
-                <Link to='/' className="btn btn-default">Continue Shopping</Link>
+            <div className="btn-group">
+                <CartButton txt="Add ToCart" handler={AppActions.addItem.bind(null, props.item )} />
+                <Link to='/' className="btn btn-default btn-sm">Continue Shopping</Link>
             </div>
         </div>
     );

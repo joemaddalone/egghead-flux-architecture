@@ -54,7 +54,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(226);
+	var _reactDom = __webpack_require__(225);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -84,11 +84,11 @@
 
 	var _appCart2 = _interopRequireDefault(_appCart);
 
-	var _appCatalogdetail = __webpack_require__(222);
+	var _appCatalogdetail = __webpack_require__(221);
 
 	var _appCatalogdetail2 = _interopRequireDefault(_appCatalogdetail);
 
-	var _appTemplate = __webpack_require__(223);
+	var _appTemplate = __webpack_require__(222);
 
 	var _appTemplate2 = _interopRequireDefault(_appTemplate);
 
@@ -19695,10 +19695,6 @@
 
 	var _appStore2 = _interopRequireDefault(_appStore);
 
-	var _appAddtocart = __webpack_require__(167);
-
-	var _appAddtocart2 = _interopRequireDefault(_appAddtocart);
-
 	var _StoreWatchMixin = __webpack_require__(169);
 
 	var _StoreWatchMixin2 = _interopRequireDefault(_StoreWatchMixin);
@@ -20510,66 +20506,7 @@
 
 
 /***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _appActions = __webpack_require__(168);
-
-	var _appActions2 = _interopRequireDefault(_appActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var AddToCart = (function (_React$Component) {
-	    _inherits(AddToCart, _React$Component);
-
-	    function AddToCart(props) {
-	        _classCallCheck(this, AddToCart);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(AddToCart).call(this, props));
-	    }
-
-	    _createClass(AddToCart, [{
-	        key: 'handler',
-	        value: function handler() {
-	            _appActions2.default.addItem(this.props.item);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'button',
-	                {
-	                    className: 'btn btn-default',
-	                    onClick: this.handler.bind(this) },
-	                'Add To Cart'
-	            );
-	        }
-	    }]);
-
-	    return AddToCart;
-	})(_react2.default.Component);
-
-	exports.default = AddToCart;
-
-/***/ },
+/* 167 */,
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20700,9 +20637,13 @@
 
 	var _reactRouter = __webpack_require__(171);
 
-	var _appAddtocart = __webpack_require__(167);
+	var _appActions = __webpack_require__(168);
 
-	var _appAddtocart2 = _interopRequireDefault(_appAddtocart);
+	var _appActions2 = _interopRequireDefault(_appActions);
+
+	var _appCartButton = __webpack_require__(228);
+
+	var _appCartButton2 = _interopRequireDefault(_appCartButton);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20740,13 +20681,13 @@
 	        ),
 	        _react2.default.createElement(
 	            'div',
-	            { className: 'btn-group btn-group-xs' },
+	            { className: 'btn-group' },
 	            _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/item/' + props.item.id, className: 'btn btn-default' },
+	                { to: '/item/' + props.item.id, className: 'btn btn-default btn-sm' },
 	                'Learn More'
 	            ),
-	            _react2.default.createElement(_appAddtocart2.default, { item: props.item })
+	            _react2.default.createElement(_appCartButton2.default, { txt: 'Add ToCart', handler: _appActions2.default.addItem.bind(null, props.item) })
 	        )
 	    );
 	};
@@ -25226,17 +25167,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _appRemovefromcart = __webpack_require__(219);
+	var _appCartButton = __webpack_require__(228);
 
-	var _appRemovefromcart2 = _interopRequireDefault(_appRemovefromcart);
+	var _appCartButton2 = _interopRequireDefault(_appCartButton);
 
-	var _appDecreaseitem = __webpack_require__(220);
+	var _appActions = __webpack_require__(168);
 
-	var _appDecreaseitem2 = _interopRequireDefault(_appDecreaseitem);
-
-	var _appIncreaseitem = __webpack_require__(221);
-
-	var _appIncreaseitem2 = _interopRequireDefault(_appIncreaseitem);
+	var _appActions2 = _interopRequireDefault(_appActions);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25247,7 +25184,10 @@
 	        _react2.default.createElement(
 	            'td',
 	            null,
-	            _react2.default.createElement(_appRemovefromcart2.default, { index: props.index })
+	            _react2.default.createElement(_appCartButton2.default, {
+	                index: props.index,
+	                txt: 'x',
+	                handler: _appActions2.default.removeItem.bind(null, props.index) })
 	        ),
 	        _react2.default.createElement(
 	            'td',
@@ -25262,8 +25202,18 @@
 	        _react2.default.createElement(
 	            'td',
 	            null,
-	            _react2.default.createElement(_appDecreaseitem2.default, { index: props.index }),
-	            _react2.default.createElement(_appIncreaseitem2.default, { index: props.index })
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'btn-group' },
+	                _react2.default.createElement(_appCartButton2.default, {
+	                    index: props.index,
+	                    txt: '-',
+	                    handler: _appActions2.default.decreaseItem.bind(null, props.index) }),
+	                _react2.default.createElement(_appCartButton2.default, {
+	                    index: props.index,
+	                    txt: '+',
+	                    handler: _appActions2.default.increaseItem.bind(null, props.index) })
+	            )
 	        ),
 	        _react2.default.createElement(
 	            'td',
@@ -25275,181 +25225,9 @@
 	};
 
 /***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _appActions = __webpack_require__(168);
-
-	var _appActions2 = _interopRequireDefault(_appActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var RemoveFromCart = (function (_React$Component) {
-	    _inherits(RemoveFromCart, _React$Component);
-
-	    function RemoveFromCart() {
-	        _classCallCheck(this, RemoveFromCart);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(RemoveFromCart).call(this));
-	    }
-
-	    _createClass(RemoveFromCart, [{
-	        key: 'handler',
-	        value: function handler() {
-	            _appActions2.default.removeItem(this.props.index);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'button',
-	                { onClick: this.handler.bind(this) },
-	                'x'
-	            );
-	        }
-	    }]);
-
-	    return RemoveFromCart;
-	})(_react2.default.Component);
-
-	exports.default = RemoveFromCart;
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _appActions = __webpack_require__(168);
-
-	var _appActions2 = _interopRequireDefault(_appActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var DecreaseItem = (function (_React$Component) {
-	    _inherits(DecreaseItem, _React$Component);
-
-	    function DecreaseItem() {
-	        _classCallCheck(this, DecreaseItem);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(DecreaseItem).call(this));
-	    }
-
-	    _createClass(DecreaseItem, [{
-	        key: 'handler',
-	        value: function handler() {
-	            _appActions2.default.decreaseItem(this.props.index);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'button',
-	                { onClick: this.handler.bind(this) },
-	                '-'
-	            );
-	        }
-	    }]);
-
-	    return DecreaseItem;
-	})(_react2.default.Component);
-
-	exports.default = DecreaseItem;
-
-/***/ },
+/* 219 */,
+/* 220 */,
 /* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _appActions = __webpack_require__(168);
-
-	var _appActions2 = _interopRequireDefault(_appActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var IncreaseItem = (function (_React$Component) {
-	    _inherits(IncreaseItem, _React$Component);
-
-	    function IncreaseItem() {
-	        _classCallCheck(this, IncreaseItem);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(IncreaseItem).call(this));
-	    }
-
-	    _createClass(IncreaseItem, [{
-	        key: 'handler',
-	        value: function handler() {
-	            _appActions2.default.increaseItem(this.props.index);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'button',
-	                { onClick: this.handler.bind(this) },
-	                '+'
-	            );
-	        }
-	    }]);
-
-	    return IncreaseItem;
-	})(_react2.default.Component);
-
-	exports.default = IncreaseItem;
-
-/***/ },
-/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25466,13 +25244,17 @@
 
 	var _appStore2 = _interopRequireDefault(_appStore);
 
-	var _appAddtocart = __webpack_require__(167);
-
-	var _appAddtocart2 = _interopRequireDefault(_appAddtocart);
-
 	var _StoreWatchMixin = __webpack_require__(169);
 
 	var _StoreWatchMixin2 = _interopRequireDefault(_StoreWatchMixin);
+
+	var _appActions = __webpack_require__(168);
+
+	var _appActions2 = _interopRequireDefault(_appActions);
+
+	var _appCartButton = __webpack_require__(228);
+
+	var _appCartButton2 = _interopRequireDefault(_appCartButton);
 
 	var _reactRouter = __webpack_require__(171);
 
@@ -25514,11 +25296,11 @@
 	        ),
 	        _react2.default.createElement(
 	            'div',
-	            { className: 'btn-group btn-group-sm' },
-	            _react2.default.createElement(_appAddtocart2.default, { item: props.item }),
+	            { className: 'btn-group' },
+	            _react2.default.createElement(_appCartButton2.default, { txt: 'Add ToCart', handler: _appActions2.default.addItem.bind(null, props.item) }),
 	            _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/', className: 'btn btn-default' },
+	                { to: '/', className: 'btn btn-default btn-sm' },
 	                'Continue Shopping'
 	            )
 	        )
@@ -25528,7 +25310,7 @@
 	exports.default = (0, _StoreWatchMixin2.default)(CatalogDetail, getCatalogItem);
 
 /***/ },
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25541,7 +25323,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _appHeader = __webpack_require__(224);
+	var _appHeader = __webpack_require__(223);
 
 	var _appHeader2 = _interopRequireDefault(_appHeader);
 
@@ -25557,7 +25339,7 @@
 	};
 
 /***/ },
-/* 224 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25570,7 +25352,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _appCartsummary = __webpack_require__(225);
+	var _appCartsummary = __webpack_require__(224);
 
 	var _appCartsummary2 = _interopRequireDefault(_appCartsummary);
 
@@ -25599,7 +25381,7 @@
 	};
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25639,13 +25421,41 @@
 	exports.default = (0, _StoreWatchMixin2.default)(CartSummary, _appStore2.default.getCartTotals);
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = __webpack_require__(4);
 
+
+/***/ },
+/* 226 */,
+/* 227 */,
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	    return _react2.default.createElement(
+	        "button",
+	        {
+	            className: "btn btn-default btn-sm",
+	            onClick: props.handler.bind(undefined) },
+	        props.txt
+	    );
+	};
 
 /***/ }
 /******/ ]);

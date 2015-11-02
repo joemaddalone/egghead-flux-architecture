@@ -1,5 +1,5 @@
 import React from 'react';
-import AppStore from  '../../stores/app-store.js';
+import AppStore from  '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import { Link } from 'react-router';
 
