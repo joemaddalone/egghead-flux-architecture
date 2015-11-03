@@ -7,22 +7,19 @@ export default ( props ) => {
         <tr>
             <td>
                 <CartButton
-                    index={props.index}
                     txt="x"
-                    handler={AppActions.removeItem.bind(null, props.index )} />
+                    handler={AppActions.removeItem.bind(null, props.item )} />
             </td>
             <td>{props.item.title}</td>
             <td>{props.item.qty}</td>
             <td>
                 <div className="btn-group">
                     <CartButton
-                        index={props.index}
                         txt="-"
-                        handler={AppActions.decreaseItem.bind(null, props.index )} />
+                        handler={AppActions.decreaseItem.bind(null, props.item )} />
                     <CartButton
-                        index={props.index}
                         txt="+"
-                        handler={AppActions.increaseItem.bind(null, props.index )} />
+                        handler={AppActions.increaseItem.bind(null, props.item )} />
                 </div>
             </td>
             <td>${props.subtotal}</td>

@@ -7,5 +7,5 @@ export function register( callback ) {
 }
 
 export function dispatch( actionType, action = {} ) {
-    flux.dispatch( actionType, ...action );
+    flux.dispatch( actionType, action );
 }

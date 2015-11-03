@@ -8,22 +8,22 @@ export default {
             item: item
         } )
     },
-    removeItem( index ){
+    removeItem( item ){
         dispatch( {
             actionType: AppConstants.REMOVE_ITEM,
-            index: index
+            item: item
         } )
     },
-    increaseItem( index ){
+    increaseItem( item ){
         dispatch( {
             actionType: AppConstants.INCREASE_ITEM,
-            index: index
+            item: item
         } )
     },
-    decreaseItem( index ){
+    decreaseItem( item ){
         dispatch( {
             actionType: AppConstants.DECREASE_ITEM,
-            index: index
+            item: item
         } )
     }
 }

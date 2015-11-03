@@ -17,7 +17,7 @@ const CatalogDetail = ( props ) => {
             <img src="http://placehold.it/150x150" alt=""/>
             <p>{ props.item.description }</p>
             <p>${ props.item.cost } <span className="text-success">
-              { props.item.inCart && '(' + props.item.qty + ' in cart)' }
+              { props.item.qty && '(' + props.item.qty + ' in cart)' }
             </span>
             </p>
             <div className="btn-group">

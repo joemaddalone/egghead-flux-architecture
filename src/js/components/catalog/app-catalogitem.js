@@ -14,7 +14,7 @@ export default ( props ) => {
             <img src="http://placehold.it/150x150" alt=""/>
             <p>{ props.item.summary }</p>
             <p>${ props.item.cost } <span
-                className="text-success">{ props.item.inCart && `(${props.item.qty} in cart)` }</span></p>
+                className="text-success">{ props.item.qty && `(${props.item.qty} in cart)` }</span></p>
             <div className="btn-group">
                 <Link to={ `/item/${props.item.id}` } className="btn btn-default btn-sm">Learn More</Link>
                 <CartButton txt="Add ToCart" handler={AppActions.addItem.bind(null, props.item )} />

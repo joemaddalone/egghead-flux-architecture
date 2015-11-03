@@ -11,13 +11,12 @@ const cartItems = () => {
 const Cart = ( props ) => {
     var total = 0;
     var items = props.items.map( ( item, i ) => {
-        var subtotal = item.cost * item.qty;
+        let subtotal = item.cost * item.qty;
         total += subtotal;
         return (
             <AppCartItem
                 subtotal={subtotal}
                 key={i}
-                index={i}
                 item={item}/>
         )
     } );
@@ -35,7 +34,7 @@ const Cart = ( props ) => {
                 </tr>
                 </thead>
                 <tbody>
-                {items}
+                    {items}
                 </tbody>
                 <tfoot>
                 <tr>

@@ -3,11 +3,11 @@ import AppConstants from '../constants/app-constants';
 import assign from 'react/lib/Object.assign';
 import { EventEmitter } from 'events';
 
-let CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
 
-let _catalog = [];
+var _catalog = [];
 
-for ( var i = 1; i < 9; i++ ) {
+for ( let i = 1; i < 9; i++ ) {
     _catalog.push( {
         'id': 'FeelBetter' + i,
         'title': 'Feel Better #' + i,
@@ -17,51 +17,45 @@ for ( var i = 1; i < 9; i++ ) {
     } );
 }
 
-let _cartItems = [];
+var _cartItems = [];
 
-let _removeItem = ( index ) => {
-    _cartItems[index].inCart = false;
-    _cartItems.splice( index, 1 );
+const _removeItem = ( item ) => {
+    _cartItems.splice( _cartItems.findIndex( i => i === item ), 1 );
 };
 
-let _increaseItem = ( index ) => {
-    _cartItems[index].qty++;
+const _findCartItem = ( item ) => {
+    return _cartItems.find( cartItem => cartItem.id === item.id )
 };
 
-let _decreaseItem = ( index ) => {
-    if ( _cartItems[index].qty > 1 ) {
-        _cartItems[index].qty--;
+const _increaseItem = ( item ) => item.qty++;
+
+
+const _decreaseItem = ( item ) => {
+    item.qty--;
+    if ( item.qty === 0 ) {
+        _removeItem( item )
+    }
+};
+
+const _addItem = ( item ) => {
+    const cartItem = _findCartItem( item );
+    if ( !cartItem ) {
+        _cartItems.push( Object.assign( {qty: 1}, item ) );
     }
     else {
-        _removeItem( index );
+        _increaseItem( cartItem );
     }
 };
 
-let _addItem = ( item ) => {
-    if ( !item.inCart ) {
-        item['qty'] = 1;
-        item['inCart'] = true;
-        _cartItems.push( item );
-    }
-    else {
-        _cartItems.forEach( function ( cartItem, i ) {
-            if ( cartItem.id === item.id ) {
-                _increaseItem( i );
-            }
-        } );
-    }
-};
-
-let _cartTotals = () => {
-    let qty = 0, total = 0;
-    _cartItems.forEach( function ( cartItem ) {
+const _cartTotals = ( qty = 0, total = 0 ) => {
+    _cartItems.forEach( cartItem  => {
         qty += cartItem.qty;
         total += cartItem.qty * cartItem.cost;
     } );
-    return {'qty': qty, 'total': total};
+    return {qty, total};
 };
 
-let AppStore = assign( EventEmitter.prototype, {
+const AppStore = assign( EventEmitter.prototype, {
     emitChange() {
         this.emit( CHANGE_EVENT );
     },
@@ -79,7 +73,9 @@ let AppStore = assign( EventEmitter.prototype, {
     },
 
     getCatalog() {
-        return _catalog;
+        return _catalog.map( item => {
+            return Object.assign( {}, item, _cartItems.find( cItem => cItem.id === item.id ) )
+        } )
     },
 
     getCartTotals() {
@@ -93,15 +89,15 @@ let AppStore = assign( EventEmitter.prototype, {
                 break;
 
             case AppConstants.REMOVE_ITEM:
-                _removeItem( action.index );
+                _removeItem( action.item );
                 break;
 
             case AppConstants.INCREASE_ITEM:
-                _increaseItem( action.index );
+                _increaseItem( action.item );
                 break;
 
             case AppConstants.DECREASE_ITEM:
-                _decreaseItem( action.index );
+                _decreaseItem( action.item );
                 break;
         }
 
