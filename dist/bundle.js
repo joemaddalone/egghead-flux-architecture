@@ -19738,10 +19738,6 @@
 
 	var _appConstants2 = _interopRequireDefault(_appConstants);
 
-	var _Object = __webpack_require__(40);
-
-	var _Object2 = _interopRequireDefault(_Object);
-
 	var _events = __webpack_require__(166);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -19752,10 +19748,10 @@
 
 	for (var i = 1; i < 9; i++) {
 	    _catalog.push({
-	        'id': 'FeelBetter' + i,
-	        'title': 'Feel Better #' + i,
-	        'summary': 'consume this!',
-	        'description': 'This will improve your life.',
+	        'id': 'Widget' + i,
+	        'title': 'Widget #' + i,
+	        'summary': 'A great widget',
+	        'description': 'Lorem ipsum dolor sit amet.',
 	        'cost': i
 	    });
 	}
@@ -19805,7 +19801,7 @@
 	    return { qty: qty, total: total };
 	};
 
-	var AppStore = (0, _Object2.default)(_events.EventEmitter.prototype, {
+	var AppStore = Object.assign(_events.EventEmitter.prototype, {
 	    emitChange: function emitChange() {
 	        this.emit(CHANGE_EVENT);
 	    },
@@ -25116,7 +25112,7 @@
 	        _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Obey'
+	            'Cart'
 	        ),
 	        _react2.default.createElement(
 	            'table',
@@ -25320,12 +25316,12 @@
 	        _react2.default.createElement(
 	            'div',
 	            { className: 'btn-group' },
-	            _react2.default.createElement(_appCartButton2.default, { txt: 'Add ToCart', handler: _appActions2.default.addItem.bind(null, props.item) }),
 	            _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/', className: 'btn btn-default btn-sm' },
 	                'Continue Shopping'
-	            )
+	            ),
+	            _react2.default.createElement(_appCartButton2.default, { txt: 'Add ToCart', handler: _appActions2.default.addItem.bind(null, props.item) })
 	        )
 	    );
 	};

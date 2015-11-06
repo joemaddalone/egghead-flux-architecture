@@ -21,8 +21,8 @@ const CatalogDetail = ( props ) => {
             </span>
             </p>
             <div className="btn-group">
-                <CartButton txt="Add ToCart" handler={AppActions.addItem.bind(null, props.item )} />
                 <Link to='/' className="btn btn-default btn-sm">Continue Shopping</Link>
+                <CartButton txt="Add ToCart" handler={AppActions.addItem.bind(null, props.item )} />
             </div>
         </div>
     );

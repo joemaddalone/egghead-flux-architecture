@@ -1,6 +1,5 @@
 import {dispatch, register} from '../dispatchers/app-dispatcher';
 import AppConstants from '../constants/app-constants';
-import assign from 'react/lib/Object.assign';
 import { EventEmitter } from 'events';
 
 const CHANGE_EVENT = 'change';
@@ -9,10 +8,10 @@ var _catalog = [];
 
 for ( let i = 1; i < 9; i++ ) {
     _catalog.push( {
-        'id': 'FeelBetter' + i,
-        'title': 'Feel Better #' + i,
-        'summary': 'consume this!',
-        'description': 'This will improve your life.',
+        'id': 'Widget' + i,
+        'title': 'Widget #' + i,
+        'summary': 'A great widget',
+        'description': 'Lorem ipsum dolor sit amet.',
         'cost': i
     } );
 }
@@ -55,7 +54,7 @@ const _cartTotals = ( qty = 0, total = 0 ) => {
     return {qty, total};
 };
 
-const AppStore = assign( EventEmitter.prototype, {
+const AppStore = Object.assign( EventEmitter.prototype, {
     emitChange() {
         this.emit( CHANGE_EVENT );
     },
