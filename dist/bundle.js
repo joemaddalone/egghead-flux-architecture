@@ -25387,7 +25387,7 @@
 	            _react2.default.createElement(
 	                'h1',
 	                null,
-	                'Shopping'
+	                'Store'
 	            )
 	        ),
 	        _react2.default.createElement(
