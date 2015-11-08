@@ -1,1 +1,1 @@
-In this lesson we'll create our initial components using the architecture we've built so far.
+In this lesson we'll shift the responsibilty of managing the state of our application over to a higher order function rather than having each component managing it's own state.
