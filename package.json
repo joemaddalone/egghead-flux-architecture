@@ -1,12 +1,12 @@
 {
-  "name": "egghead-flux",
+  "name": "egghead-flux-architecture",
   "version": "1.0.0",
-  "description": "",
+  "description": "flux architecture w/ webpack, ES6, and react-router",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server"
   },
-  "author": "",
+  "author": "Joe Maddalone",
   "license": "ISC",
   "dependencies": {
     "flux": "^2.1.1",
