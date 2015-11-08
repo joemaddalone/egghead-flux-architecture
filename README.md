@@ -1,1 +1,1 @@
-In this lesson we'll create a very simple application dispatcher utilizing the open source flux dispatcher from Facebook.
+In this lesson we'll build our actions which will be sent to our dispatcher.
