@@ -1,1 +1,1 @@
-In this lesson we'll create our Flux application's store which will manage the state of our application.
+In this lesson we'll create our initial components using the architecture we've built so far.
