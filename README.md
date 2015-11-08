@@ -1,1 +1,1 @@
-In this lesson we'll build our actions which will be sent to our dispatcher.
+In this lesson we'll create our Flux application's store which will manage the state of our application.
