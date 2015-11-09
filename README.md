@@ -1,1 +1,1 @@
-Using our established architecture we'll make short work of a few rmaining tasks to meet our application requirements.
+In this lesson we'll simplify future development by redusing the logic contained in our application's store.
