@@ -1,1 +1,1 @@
-In this lesson we'll organize our components by feature.
+In this lesson introduce routing into our application using react-router 1.0
