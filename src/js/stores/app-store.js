@@ -16,7 +16,7 @@ for ( let i = 1; i < 9; i++ ) {
     } );
 }
 
-var cartItems = [];
+var _cartItems = [];
 
 const _removeItem = ( item ) => {
     _cartItems.splice( _cartItems.findIndex( i => i === item ), 1 );
@@ -97,6 +97,9 @@ const AppStore = Object.assign(EventEmitter.prototype, {
           _decreaseItem( action.item );
           break;
     }
+
+    AppStore.emitChange();
+
   })
 });
 
