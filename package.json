@@ -10,10 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "flux": "^2.1.1",
-    "history": "^1.13.0",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-router": "^1.0.0-rc4"
+    "history": "^2.1.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.1.2",
