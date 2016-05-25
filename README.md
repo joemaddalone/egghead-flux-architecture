@@ -1,1 +1,1 @@
-In this lesson we'll look at an overview of how Flux, setup our application structure and tools, and create our first component.
+In this lesson we'll build our actions which will be sent to our dispatcher.
